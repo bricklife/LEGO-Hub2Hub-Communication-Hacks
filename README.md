@@ -2,7 +2,7 @@
 
 LEGO MINDSTORMS Robot Inventor's Hub to Hub Communication is implemented on Bluetooth LE (BLE) Advertising.
 
-For example, when a hub transmits a signal "ABC" with a value "123", some **INVALID** advertising packets will be sent as follows:
+For example, when a hub transmits a signal `"ABC"` with a value `"123"`, some **INVALID** advertising packets will be sent as follows:
 
 <img src="Images/transmit-block.png">
 <img src="Images/advertising-packet.png">
@@ -14,9 +14,9 @@ For example, when a hub transmits a signal "ABC" with a value "123", some **INVA
 | Bytes | Meaning | Note |
 | --- | --- | --- |
 | `FF 03 97` | Fixed header | |
-| `01` | Transmitting ID | 0 - 255 |
-| `48 03 83 A3` | Signal name hash = CRC32("ABC") = 0xA3830348 | |
-| `31 32 33` | Value = "123"  | 0 - 23 bytes |
+| `01` | Transmission ID (`0x00` - `0xff`) | MUST be changed for each transmission |
+| `48 03 83 A3` | Signal name hash = CRC32(`"ABC"`) = `0xA3830348` | |
+| `31 32 33` | Value = `"123"`  | Max 23 bytes |
 
 ## How to transmit a signal by hcitool
 
