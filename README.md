@@ -11,12 +11,12 @@ For example, when a hub transmits a signal "ABC" with a value "123", some **INVA
 
 `FF 03 97 01 48 03 83 A3 31 32 33`
 
-| Bytes | Meaning |
-| --- | --- |
-| `FF 03 97` | Fixed header |
-| `01` | Signal ID |
-| `48 03 83 A3` | Signal name hash = CRC32("ABC") = 0xA3830348 |
-| `31 32 33` | Value = "123"  |
+| Bytes | Meaning | Note |
+| --- | --- | --- |
+| `FF 03 97` | Fixed header | |
+| `01` | Transmitting ID | 0 - 255 |
+| `48 03 83 A3` | Signal name hash = CRC32("ABC") = 0xA3830348 | |
+| `31 32 33` | Value = "123"  | 0 - 23 bytes |
 
 ## Transmit signal by hcitool
 
