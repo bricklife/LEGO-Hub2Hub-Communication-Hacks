@@ -15,7 +15,7 @@ For example, when a hub transmits a signal "ABC" with a value "123", some **INVA
 | --- | --- |
 | `FF 03 97` | Fixed header |
 | `01` | Signal ID |
-| `48 03 83 A3` | Signal Hash = CRC32("ABC") = 0xA3830348 |
+| `48 03 83 A3` | Signal name hash = CRC32("ABC") = 0xA3830348 |
 | `31 32 33` | Value = "123"  |
 
 ## Transmit signal by hcitool
