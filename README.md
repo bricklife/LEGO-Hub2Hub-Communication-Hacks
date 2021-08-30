@@ -1,6 +1,6 @@
 # LEGO MINDSTORMS Robot Inventor's Hub to Hub Communication Hacks
 
-LEGO MINDSTORMS Robot Inventor's Hub to Hub Communication is implemented on Bluetooth LE (BLE) Advertising. For example, when a hub transmits a signal "ABC" with a value "123", some INVALID advertising packets will be sent as follows:
+LEGO MINDSTORMS Robot Inventor's Hub to Hub Communication is implemented on Bluetooth LE (BLE) Advertising. For example, when a hub transmits a signal "ABC" with a value "123", some **INVALID** advertising packets will be sent as follows:
 
 <img src="Images/transmit-block.png">
 <img src="Images/advertising-packet.png">
