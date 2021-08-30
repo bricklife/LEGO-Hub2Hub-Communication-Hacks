@@ -27,6 +27,6 @@ $ hcitool -i hci0 cmd 0x08 0x000a 01
 ```
 
 ## Demo
-Transmit signals from Raspberry Pi Zero W
-https://www.youtube.com/watch?v=K0kwiPHDSnw
+- Transmit signals from Raspberry Pi Zero W https://www.youtube.com/watch?v=K0kwiPHDSnw
+  - Python 3.x scrpit: [rpi-counter.py](python3-scripts/rpi-counter.py) using [hub2hub.py](python3-scripts/hub2hub.py)
 
