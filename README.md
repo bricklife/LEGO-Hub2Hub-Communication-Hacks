@@ -33,7 +33,7 @@ $ hcitool -i hci0 cmd 0x08 0x000a 00
 https://www.youtube.com/watch?v=K0kwiPHDSnw
 - Transmitter: Raspberry Pi Zero W
   - Python 3.x scrpit: [rpi-counter.py](python3-scripts/rpi-counter.py) using [hub2hub.py](python3-scripts/hub2hub.py)
-  - Like [this word block program](Images/transmit-counter-block.png)
+  - Transmit signals with a counter value when pushing the button like [this word block program](Images/transmit-counter-block.png)
 - Receiver: MINDSTORMS Hub
   - <img src="Images/receiver-block.png">
 
