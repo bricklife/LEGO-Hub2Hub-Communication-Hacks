@@ -18,12 +18,14 @@ For example, when a hub transmits a signal "ABC" with a value "123", some **INVA
 | `48 03 83 A3` | Signal name hash = CRC32("ABC") = 0xA3830348 | |
 | `31 32 33` | Value = "123"  | 0 - 23 bytes |
 
-## Transmit signal by hcitool
+## How to transmit a signal by hcitool
 
 ```
 $ hcitool -i hci0 cmd 0x08 0x0006 a0 00 a0 00 02 00 00 00 00 00 00 00 00 07 00
 $ hcitool -i hci0 cmd 0x08 0x0008 0b ff 03 97 01 48 03 83 a3 31 32 33
 $ hcitool -i hci0 cmd 0x08 0x000a 01
+...
+$ hcitool -i hci0 cmd 0x08 0x000a 00
 ```
 
 ## Demo
