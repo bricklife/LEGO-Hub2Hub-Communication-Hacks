@@ -28,7 +28,7 @@ $ hcitool -i hci0 cmd 0x08 0x000a 01
 $ hcitool -i hci0 cmd 0x08 0x000a 00
 ```
 
-## Demo: Transmit signals by Raspberry Pi Zero W
+## Demo: Transmit signals from Raspberry Pi Zero W
 
 https://www.youtube.com/watch?v=K0kwiPHDSnw
 - Transmitter: Raspberry Pi Zero W
