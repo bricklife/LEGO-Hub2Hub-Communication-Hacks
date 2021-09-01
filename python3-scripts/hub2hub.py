@@ -18,8 +18,8 @@ def _set_advertise_enable(sock, enable):
     param = b'\x01' if enable else b'\x00'
     bluez.hci_send_cmd(sock, 0x08, 0x000a, param)
 
-def transmit(id, signal, value, interval = 0x00a0, duration = 0.5):
-    id = id & 0xff
+def transmit_signal(transmission_id, signal, value, interval = 0x00a0, duration = 0.5):
+    transmission_id = transmission_id & 0xff
     hash = binascii.crc32(signal.encode())
     header = struct.pack('<BBBBL', 0xff, 0x03, 0x97, id, hash)
     data = header + value.encode()[:23]
@@ -33,4 +33,4 @@ def transmit(id, signal, value, interval = 0x00a0, duration = 0.5):
 
 if __name__ == "__main__":
     import sys
-    transmit(int(sys.argv[1]), sys.argv[2], sys.argv[3])
+    transmit_signal(int(sys.argv[1]), sys.argv[2], sys.argv[3])

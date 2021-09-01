@@ -10,7 +10,7 @@ GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while True:
     if GPIO.input(pin) == False:
-        hub2hub.transmit(i, 'ABC', str(i))
+        hub2hub.transmit_signal(i, 'ABC', str(i))
         i += 1
     time.sleep(0.1)
 
