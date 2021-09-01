@@ -11,6 +11,8 @@ OCF_LE_SET_ADVERTISE_ENABLE = 0x000a
 
 def _set_advertising_parameters(sock, interval):
     interval = interval & 0xffff
+    if interval < 0x00a0:
+        interval = 0x00a0 # shall not be set to less than 0x00A0 (100 ms) if the Advertising_Type is set to 0x02 (ADV_SCAN_IND) 
     type = 0x02 # ADV_SCAN_IND
     param = struct.pack('<HHBBB6sBB', interval, interval, type, 0, 0, b'', 7, 0)
     bluez.hci_send_cmd(sock, OGF_LE_CTL, OCF_LE_SET_ADVERTISING_PARAMETERS, param)
