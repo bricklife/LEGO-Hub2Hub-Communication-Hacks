@@ -29,7 +29,7 @@ def _set_advertise_enable(sock, enable):
 def transmit_signal(transmission_id, signal, value, interval = 0x00a0, duration = 0.5):
     transmission_id = transmission_id & 0xff
     hash = binascii.crc32(signal.encode())
-    header = struct.pack('<BBBBL', 0xff, 0x03, 0x97, id, hash)
+    header = struct.pack('<BBBBL', 0xff, 0x03, 0x97, transmission_id, hash)
     data = header + value.encode()[:23]
 
     sock = bluez.hci_open_dev(0)
