@@ -28,11 +28,11 @@ $ hcitool -i hci0 cmd 0x08 0x000a 01
 $ hcitool -i hci0 cmd 0x08 0x000a 00
 ```
 
-## Demo: Transmit signals from Raspberry Pi Zero W
+## Demo: Transmit signals from Raspberry Pi
 
 https://www.youtube.com/watch?v=K0kwiPHDSnw
 - Transmitter: Raspberry Pi Zero W
-  - Python 3.x scrpit: [rpi-counter.py](python3-scripts/rpi-counter.py) using [hub2hub.py](python3-scripts/hub2hub.py)
+  - Python 3.7+ scrpit: [transmitter.py](raspberry-pi/transmitter.py) using [hub2hub.py](raspberry-pi/hub2hub.py)
   - Transmit signals with a counter value when pushing the button like [this word block program](Images/transmit-counter-block.png)
 - Receiver: MINDSTORMS Hub
   - <img src="Images/receiver-block.png">
