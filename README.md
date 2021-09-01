@@ -2,7 +2,7 @@
 
 LEGO MINDSTORMS Robot Inventor's Hub to Hub Communication is implemented on Bluetooth LE (BLE) Advertising.
 
-For example, when a hub transmits a signal `"ABC"` with a value `"123"`, some **INVALID** advertising packets will be sent as follows:
+For example, when a hub transmits a signal named `"ABC"` with a value `"123"`, some **INVALID** advertising packets will be sent as follows:
 
 <img src="Images/transmit-block.png">
 <img src="Images/advertising-packet.png">
@@ -33,7 +33,7 @@ $ hcitool -i hci0 cmd 0x08 0x000a 00
 https://www.youtube.com/watch?v=K0kwiPHDSnw
 - Transmitter: Raspberry Pi Zero W
   - Python 3.7+ scrpit: [transmitter.py](raspberry-pi/transmitter.py) using [hub2hub.py](raspberry-pi/hub2hub.py)
-  - Transmit signals with a counter value when pushing the button like [this word block program](Images/transmit-counter-block.png)
+  - Transmit signals named `"ABC"` with a counter value when pushing the button like [this word block program](Images/transmit-counter-block.png)
 - Receiver: MINDSTORMS Hub
   - <img src="Images/receiver-block.png">
 
