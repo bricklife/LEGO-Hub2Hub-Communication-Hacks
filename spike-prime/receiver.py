@@ -9,7 +9,7 @@ hub = PrimeHub()
 ble = ubluetooth.BLE()
 transmission_id = None
 
-#signal_hash = binascii.crc32("ABC".encode())
+#signal_name_hash = binascii.crc32("ABC".encode())
 
 _IRQ_SCAN_RESULT    = const(5)
 _IRQ_SCAN_DONE      = const(6)
@@ -33,7 +33,7 @@ def receive_signal(duration_ms, callback):
     ble.gap_scan(duration_ms, 10000, 10000)
 
 def _receive(hash, value, done):
-    #if hash == signal_hash:
+    #if hash == signal_name_hash:
     if value:
         hub.light_matrix.write(value)
     if done:

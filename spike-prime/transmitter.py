@@ -8,7 +8,7 @@ hub = PrimeHub()
 ble = ubluetooth.BLE()
 
 count = 0
-hash = 0xa3830348 # = binascii.crc32("ABC".encode())
+signal_name_hash = 0xa3830348 # = binascii.crc32("ABC".encode())
 
 def transmit_signal(transmission_id, hash, value):
     transmission_id = transmission_id & 0xff
@@ -21,5 +21,5 @@ def transmit_signal(transmission_id, hash, value):
 
 while True:
     hub.left_button.wait_until_pressed()
-    transmit_signal(count, hash, str(count))
+    transmit_signal(count, signal_name_hash, str(count))
     count += 1
