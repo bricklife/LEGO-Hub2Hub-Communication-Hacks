@@ -83,9 +83,9 @@ def receive_signal(callback):
                 if etype == ADV_SCAN_IND and dlen >= 8:
                     data = pkt[14:-1]
                     if data[:3] == b'\xff\x03\x97':
-                        tid, hash = struct.unpack("<xxxBL", data[:8])
-                        value = data[8:].decode()
+                        tid, hash = struct.unpack("<BL", data[3:8])
                         if tid != transmission_id:
+                            value = data[8:].decode()
                             callback(hash, value)
                             transmission_id = tid
 
@@ -97,6 +97,6 @@ if __name__ == "__main__":
     if sys.argv[1] == 'transmit':
         transmit_signal(int(sys.argv[2]), sys.argv[3], sys.argv[4])
     elif sys.argv[1] == 'receive':
-        def r(hash, value):
+        def _callback(hash, value):
             print(hash, value)
-        receive_signal(r)
+        receive_signal(_callback)

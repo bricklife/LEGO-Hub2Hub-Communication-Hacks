@@ -21,8 +21,8 @@ def receive_signal(duration_ms, callback):
             addr_type, addr, adv_type, rssi, adv_data = data
             if adv_type == 0x02 and len(adv_data) >= 8 and adv_data[:3] == b'\xff\x03\x97':
                 tid, hash = ustruct.unpack("<BL", adv_data[3:8])
-                value = adv_data[8:].decode()
                 if tid != transmission_id:
+                    value = adv_data[8:].decode()
                     callback(hash, value, False)
                     transmission_id = tid
         elif event == _IRQ_SCAN_DONE:
@@ -32,7 +32,7 @@ def receive_signal(duration_ms, callback):
     ble.irq(_bt_irq)
     ble.gap_scan(duration_ms, 10000, 10000)
 
-def _receive(hash, value, done):
+def _callback(hash, value, done):
     #if hash == signal_name_hash:
     if value:
         hub.light_matrix.write(value)
@@ -41,4 +41,4 @@ def _receive(hash, value, done):
         wait_for_seconds(1)
         hub.light_matrix.off()
 
-receive_signal(10 * 1000, _receive)
+receive_signal(10 * 1000, _callback)
