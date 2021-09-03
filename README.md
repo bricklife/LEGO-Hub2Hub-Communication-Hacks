@@ -28,23 +28,29 @@ $ sudo hcitool -i hci0 cmd 0x08 0x000a 01
 $ sudo hcitool -i hci0 cmd 0x08 0x000a 00
 ```
 
-## Transmit and Receive signals on Raspberry Pi
+## Transmit and receive signals on Raspberry Pi OS
 
-[hub2hub.py](raspberry-pi/hub2hub.py) is a Python 3.7x script for Hub to Hub Communication for Linux including Raspberry Pi OS. Usage as command:
+[hub2hub.py](raspberry-pi/hub2hub.py) is a Hub to Hub Communication library written by Python 3.7x for Raspberry Pi OS (and Linux). Usage as command:
 
 ```
-$ sudo python3 hub2hub.py transmit <transmittion-id> <signal-name> <value>
+$ sudo python3 hub2hub.py transmit <transmission-id> <signal-name> <value>
 ```
 or
 ```
 $ sudo python3 hub2hub.py receive
 ```
 
-### Demo
+### Transmission Demo
+
 - https://www.youtube.com/watch?v=K0kwiPHDSnw
 - Transmitter: Raspberry Pi Zero W
-  - Python 3.7+ scrpit: [transmitter.py](raspberry-pi/transmitter.py) importing [hub2hub.py](raspberry-pi/hub2hub.py)
+  - Python 3.7+ scrpit: [raspberry-pi/transmitter.py](raspberry-pi/transmitter.py) importing [hub2hub.py](raspberry-pi/hub2hub.py)
   - Transmit signals named `"ABC"` with a counter value when pushing the button like [this word block program](Images/transmit-counter-block.png)
 - Receiver: MINDSTORMS Hub
   - <img src="Images/receiver-block.png">
 
+## Transmit and receive signals on SPIKE Prime Hub OS
+
+- Transmitter program: [spike-prime/transmitter.py](spike-prime/transmitter.py)
+- Receiver program: [spike-prime/receiver.py](spike-prime/receiver.py)
+- Both need to implement `crc32()`
