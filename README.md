@@ -51,6 +51,9 @@ $ sudo python3 hub2hub.py receive
 
 ## Transmit and receive signals on SPIKE Prime Hub OS
 
+MicroPython v1.12 scripts for SPIKE Prime Hub OS 3.1.21.9
+
 - Transmitter program: [spike-prime/transmitter.py](spike-prime/transmitter.py)
 - Receiver program: [spike-prime/receiver.py](spike-prime/receiver.py)
-- Both need to implement `crc32()`
+- TODO: 
+  - implement `crc32()`
