@@ -57,3 +57,7 @@ MicroPython v1.12 scripts for SPIKE Prime Hub OS 3.1.21.9
 - Receiver program: [spike-prime/receiver.py](spike-prime/receiver.py)
 - TODO: 
   - implement `crc32()`
+
+## Transmit and receive signals on ESP32
+
+WIP
