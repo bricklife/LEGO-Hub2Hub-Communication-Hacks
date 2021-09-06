@@ -18,8 +18,6 @@ For example, when a hub transmits a signal named `"ABC"` with a value `"123"`, s
 | `48 03 83 A3` | Signal name hash = CRC32(`"ABC"`) = `0xA3830348` | |
 | `31 32 33` | Value = `"123"`  | Max 23 bytes |
 
-See [Bluetooth Core Specification Version 5.3, Vol 4, Part E, 7.8 LE Controller Commands](https://www.bluetooth.com/specifications/specs/core-specification/)
-
 ## How to transmit a signal by hcitool
 
 ```
@@ -29,6 +27,8 @@ $ sudo hcitool -i hci0 cmd 0x08 0x000a 01
 ...
 $ sudo hcitool -i hci0 cmd 0x08 0x000a 00
 ```
+
+See [Bluetooth Core Specification Version 5.3, Vol 4, Part E, 7.8 LE Controller Commands](https://www.bluetooth.com/specifications/specs/core-specification/)
 
 ## Transmit and receive signals on Raspberry Pi OS
 
