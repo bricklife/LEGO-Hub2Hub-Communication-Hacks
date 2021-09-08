@@ -2,13 +2,36 @@ from spike import PrimeHub
 import ubluetooth
 import ustruct
 import utime
-#import binascii
+
+crc_table = None
+
+def make_crc_table_if_needed():
+    global crc_table
+    if crc_table:
+        return
+    crc_table = [0] * 256
+    for i in range(256):
+        c = i
+        for j in range(8):
+            if c & 1:
+                c = 0xEDB88320 ^ (c >> 1)
+            else:
+                c = c >> 1
+        crc_table[i] = c
+
+def crc32(buf):
+    make_crc_table_if_needed()
+    c = 0xFFFFFFFF
+    l = len(buf)
+    for i in range(l):
+        c = crc_table[(c ^ buf[i]) & 0xFF] ^ (c >> 8)
+    return c ^ 0xFFFFFFFF
 
 hub = PrimeHub()
 ble = ubluetooth.BLE()
 
 count = 0
-signal_name_hash = 0xa3830348 # = binascii.crc32("ABC".encode())
+signal_name_hash = crc32('ABC'.encode())
 
 def transmit_signal(transmission_id, hash, value):
     transmission_id = transmission_id & 0xff
