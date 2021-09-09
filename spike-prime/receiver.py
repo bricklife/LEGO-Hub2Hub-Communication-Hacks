@@ -2,14 +2,37 @@ from spike import PrimeHub
 from spike.control import wait_for_seconds
 import ubluetooth
 import ustruct
-#import binascii
 from micropython import const
+
+crc_table = None
+
+def make_crc_table_if_needed():
+    global crc_table
+    if crc_table:
+        return
+    crc_table = [0] * 256
+    for i in range(256):
+        c = i
+        for j in range(8):
+            if c & 1:
+                c = 0xEDB88320 ^ (c >> 1)
+            else:
+                c = c >> 1
+        crc_table[i] = c
+
+def crc32(buf):
+    make_crc_table_if_needed()
+    c = 0xFFFFFFFF
+    l = len(buf)
+    for i in range(l):
+        c = crc_table[(c ^ buf[i]) & 0xFF] ^ (c >> 8)
+    return c ^ 0xFFFFFFFF
 
 hub = PrimeHub()
 ble = ubluetooth.BLE()
 transmission_id = None
 
-#signal_name_hash = binascii.crc32("ABC".encode())
+signal_name_hash = crc32('ABC'.encode())
 
 _IRQ_SCAN_RESULT    = const(5)
 _IRQ_SCAN_DONE      = const(6)
@@ -33,8 +56,7 @@ def receive_signal(duration_ms, callback):
     ble.gap_scan(duration_ms, 10000, 10000)
 
 def _callback(hash, value, done):
-    #if hash == signal_name_hash:
-    if value:
+    if hash == signal_name_hash:
         hub.light_matrix.write(value)
     if done:
         hub.light_matrix.show_image('ASLEEP')
