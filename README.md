@@ -28,7 +28,7 @@ $ sudo hcitool -i hci0 cmd 0x08 0x000a 01
 $ sudo hcitool -i hci0 cmd 0x08 0x000a 00
 ```
 
-See [Bluetooth Core Specification Version 5.3, Vol 4, Part E, 7.8 LE Controller Commands](https://www.bluetooth.com/specifications/specs/core-specification/)
+Ref. [Bluetooth Core Specification Version 5.3, Vol 4, Part E, 7.8 LE Controller Commands](https://www.bluetooth.com/specifications/specs/core-specification/)
 
 ## Transmit and receive signals on Raspberry Pi OS
 
